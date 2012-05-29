@@ -1,0 +1,71 @@
+---
+layout: default
+title: Register
+---
+
+
+<h1>Register</h1>
+
+<a name="regform"></a>
+<div style="" id="susform">
+<form id="target" action="">
+
+<fieldset>
+<br>
+<label for="name">Name</label><input type="text" name="name" />
+
+<br>
+<label for="email">Email</label><input type="text" name="email" />
+
+<br>
+<label for="updates">Alert for Updates</label><select name="updates">
+  <option value="">Select</option>
+  <option value="Yes">Yes</option>
+  <option value="No">No</option>
+</select>
+
+<br>
+<label for="advice">Suggestion?</label><textarea name="advice"></textarea>
+
+<br>
+<label for="notes">Anything else?</label><textarea name="notes"></textarea>
+</fieldset>
+
+<div class="center">
+<input type="submit" name="submit" value="Tell Us" class="sub5"></input>
+</div>
+
+</form>
+</div>
+
+
+<script>
+$('#target').submit(function() {
+	$(this).fadeOut(1000);
+	var formVars = $(this).serialize();
+	//alert(formVars);
+	
+	var $that = $(this); 
+	
+	$.ajax({  
+		type: "GET",  
+		url: "rsvpsubmit.php",  
+		data: formVars,  
+		success: function(data, textStatus) {
+			//$that.html('<div class="center">Thanks!</div>');
+			$that.html('<div class="center">Thanks!</div>');
+			$that.css('font-size', '35px');
+			$that.slideDown("slow");
+		},
+		error: function(data, textStatus) {
+			$that.html("Oops! Failed to save! Tell Sheldon!");
+			$that.slideDown("slow");
+		}
+	});  
+	
+	return false;
+});
+
+
+</script>
+
