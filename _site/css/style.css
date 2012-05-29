@@ -19,15 +19,19 @@ body {
 h1, h2 {
 	font-family:Ballpark;
 	text-align:center;
+	margin:0px 0px 10px 0px;
 }
 	
-h1{
+h1.headline{
 	margin:0px 0px 10px 0px;
 	font-size:50px;
 }
 
+h1{
+	font-size:35px;
+}
+
 h2{
-	margin:0px 0px 10px 0px;
 	font-size:30px;
 }
 
@@ -71,7 +75,7 @@ h3{
 	color: #F52887;
 }
 
-img.h1 {
+img.headline {
 	width:40px;
 	margin-right:10px;
 	-moz-border-radius: 5px;
